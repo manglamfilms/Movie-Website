@@ -12,6 +12,7 @@
         padding: 20px;
         color: #333;
       }
+    
       .movie-details-container {
         background: white;
         padding: 20px;
@@ -20,36 +21,70 @@
         max-width: 800px;
         margin: 20px auto;
       }
+    
       .movie-meta {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         margin-top: 20px;
       }
+    
       .movie-meta img {
-        width: 450px;
+        width: 100%;
+        max-width: 450px;
         border-radius: 8px;
         margin-right: 20px;
       }
+    
       .movie-meta p {
         flex-grow: 1;
+        margin-top: 10px; /* Add space when wrapped */
       }
+    
       .download-options h3 {
         margin-top: 20px;
       }
+    
       .download-options button {
         background-color: #007bff;
         color: white;
         border: none;
         padding: 10px 20px;
         margin-right: 10px;
+        margin-bottom: 10px; /* Add space between buttons */
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
       }
+    
       .download-options button:hover {
         background-color: #0056b3;
       }
+    
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .movie-details-container {
+          padding: 10px;
+          margin: 10px;
+        }
+    
+        .movie-meta {
+          flex-direction: column;
+          align-items: center;
+        }
+    
+        .movie-meta img {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+    
+        .menu-buttons button, .download-options button {
+          padding: 8px 10px; /* Smaller padding */
+          font-size: 14px;
+        }
+      }
     </style>
+    
 </head>
 <body>
     <div class="movie-details-container">
