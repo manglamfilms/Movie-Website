@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manglam Movies</title>
+    <link rel="stylesheet" href="./css/style2.css" />
+  </head>
+  <body>
+    <div id="shell">
+      <div id="header">
+        <div class="headerM">
+          <div id="logo">
+            <p>Manglam Movies</p>
+          </div>
+          <div class="icon">
+            <div onclick="window.location.href='search.html'">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+        </div>
+        <div id="sub-navigation">
+          <button onclick="window.location.href='movies.html'">Movies</button>
+          <button onclick="window.location.href='webseries.html'">
+            Webseries
+          </button>
+        </div>
+      </div>
+      <div class="image-slider">
+        <div class="image-slide" id="image-slide"></div>
+      </div>
+      <div id="content"></div>
+      <div class="menu">
+        <div class="menu-buttons" id="menu-buttons"></div>
+      </div>
+      <footer class="site-footer">
+        <div class="footer-content">
+          <h3>About Us</h3>
+          <p>
+            We offer the latest movie reviews, trailers, and session times at a
+            glance.
+          </p>
+        </div>
+        <div class="footer-content">
+          <h3>Contact Info</h3>
+          <p>Email: info@yourwebsite.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+        <div class="footer-content">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"
+              ><i class="fa fa-facebook"></i
+            ></a>
+            <a href="https://youtube.com" target="_blank"
+              ><i class="fa fa-youtube"></i
+            ></a>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fa fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("movies.json")
+        .then((response) => response.json())
+        .then((data) => {
+          populateMovies(data);
+          attachClickListeners();
+        })
+        .catch((error) => console.error("Error loading movies:", error));
+
+      function populateMovies(data) {
+        const content = document.getElementById("content");
+        data.forEach((category) => {
+          const box = document.createElement("div");
+          box.classList.add("box");
+
+          const head = document.createElement("div");
+          head.classList.add("head");
+          const h2 = document.createElement("h2");
+          h2.innerText = category.category;
+          const a = document.createElement("a");
+          a.href = `${category.category.toLowerCase()}.html`;
+          a.innerText = "See all";
+          head.appendChild(h2);
+          head.appendChild(a);
+
+          const movies = document.createElement("div");
+          movies.classList.add("movies");
+
+          category.movies.forEach((m) => {
+            const movieCard = document.createElement("div");
+            movieCard.classList.add("movie-card");
+            movieCard.setAttribute("data-id", m.id);
+            movieCard.setAttribute("data-movie-name", m.title);
+
+            const img = document.createElement("img");
+            img.src = m.imageUrl;
+            const p = document.createElement("p");
+            p.innerText = m.title;
+
+            movieCard.appendChild(img);
+            movieCard.appendChild(p);
+            movies.appendChild(movieCard);
+          });
+
+          const movieButton = document.createElement("div");
+          movieButton.classList.add("movieButton");
+          const a2 = document.createElement("a");
+          a2.href = category.moreLink; // Corrected to use category or other appropriate object
+          a2.innerText = "See all";
+          movieButton.appendChild(a2);
+
+          movies.appendChild(movieButton);
+          box.appendChild(head);
+          box.appendChild(movies);
+          content.appendChild(box);
+        });
+      }
+
+      function attachClickListeners() {
+        const redirectUrls = [
+          "https://example-ad1.com",
+          "https://example-ad2.com",
+        ];
+        document.querySelectorAll(".movie-card").forEach((movie) => {
+          movie.addEventListener("click", function () {
+            const movieId = movie.getAttribute("data-id");
+            let clickCount =
+              parseInt(localStorage.getItem(`clickCount-${movieId}`)) || 0;
+
+            if (clickCount < redirectUrls.length) {
+              window.location.href = redirectUrls[clickCount];
+              localStorage.setItem(`clickCount-${movieId}`, clickCount + 1);
+            } else {
+              const movieName = movie.getAttribute("data-movie-name");
+              window.location.href = `movie-details.html?movie=${encodeURIComponent(
+                movieName
+              )}`;
+              localStorage.setItem(`clickCount-${movieId}`, 0);
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+  <script>
+    function redirectToSearch(movieCategory) {
+      window.location.href = `search.html?category=${encodeURIComponent(
+        movieCategory
+      )}`;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = [
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+        "https://via.placeholder.com/150",
+      ];
+      const imageSlide = document.getElementById("image-slide");
+      function loadImages() {
+        images.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `Image ${index + 1}`;
+          imageSlide.appendChild(img);
+        });
+        // Append first image at the end for infinite loop
+        const firstImg = document.createElement("img");
+        firstImg.src = images[0];
+        firstImg.alt = "Image 1";
+        imageSlide.appendChild(firstImg);
+      }
+      const categories = [
+        "Latest Movie",
+        "Bollywood 720p",
+        "Kangan",
+        "Hungama",
+        "Hollywood 1080p",
+        "AltT",
+        "Watcho",
+        "Atrangii",
+        "Web Series",
+        "Kooku",
+        "Stage",
+      ];
+      function loadMenuButtons() {
+        const container = document.getElementById("menu-buttons");
+        categories.forEach((category) => {
+          const button = document.createElement("button");
+          button.textContent = category;
+          button.onclick = () => redirectToSearch(category);
+          container.appendChild(button);
+        });
+      }
+      function redirectToSearch(category) {
+        window.location.href = `search.html?category=${encodeURIComponent(
+          category
+        )}`;
+      }
+      loadImages();
+      loadMenuButtons();
+    });
+  </script>
+  <script
+    src="https://kit.fontawesome.com/7b08f70322.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

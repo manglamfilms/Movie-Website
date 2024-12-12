@@ -1,0 +1,182 @@
+[
+  {
+    "category": "Bollywood",
+    "movies": [
+      {
+        "id": "moviebolly1",
+        "title": "Y-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviebolly2",
+        "title": "Y-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviebolly3",
+        "title": "Y-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviebolly4",
+        "title": "Y-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviebolly5",
+        "title": "Y-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviebolly6",
+        "title": "Z-Film",
+        "imageUrl": "https://via.placeholder.com/150"
+      }
+    ],
+    "moreLink": "bollywood.html"
+  },
+  {
+    "category": "Hollywood",
+    "movies": [
+      {
+        "id": "movieholly1",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieholly2",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieholly3",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieholly4",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieholly5",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieholly6",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      }
+    ],
+    "moreLink": "hollywood.html"
+  },
+  {
+    "category": "Web Series",
+    "movies": [
+      {
+        "id": "movieweb1",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieweb2",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieweb3",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieweb4",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieweb5",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movieweb6",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      }
+    ],
+    "moreLink": "webseries.html"
+  },
+  {
+    "category": "South Indian",
+    "movies": [
+      {
+        "id": "moviesouth1",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviesouth2",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviesouth3",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviesouth4",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviesouth5",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "moviesouth6",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      }
+    ],
+    "moreLink": "south.html"
+  },
+  {
+    "category": "Voovi",
+    "movies": [
+      {
+        "id": "movievoovi1",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movievoovi2",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movievoovi3",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movievoovi4",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movievoovi5",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      },
+      {
+        "id": "movievoovi6",
+        "title": "X-Man",
+        "imageUrl": "https://via.placeholder.com/150"
+      }
+    ],
+    "moreLink": "voovi.html"
+  }
+]

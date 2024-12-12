@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manglam Movie</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHqTQX0O6IRej1B1TpQmWW2BRfxRduSXFLkOZR4/UynKti9MdDObbLfXHq5gP26v7dVBZmLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      /* Variables for theming */
+      :root {
+        --primary-color: #2e0059;
+        --secondary-color: #242424;
+        --accent-color: #2a3177;
+        --text-color: #fff;
+        --card-bg-color: #fff;
+        --card-text-color: #000;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url("./css/images/body-bg.gif");
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      .header {
+        background-color: var(--secondary-color);
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Search bar styling */
+      .search-bar-container {
+        padding: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .search-bar {
+        display: flex;
+        position: relative;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .search-bar input[type="text"] {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        font-size: 16px;
+        border: 2px solid #555;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .search-bar input[type="text"]:focus {
+        border-color: #888;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+      }
+
+      .search-bar i {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #aaa;
+        cursor: pointer;
+      }
+
+      .menu {
+        background-color: var(--secondary-color);
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 97%;
+      }
+
+      .title {
+        margin: 0;
+        padding: 10px;
+        font-size: 24px;
+      }
+
+      .menu-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .menu-buttons button {
+        background-color: #444444;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .menu-buttons button:hover {
+        background-color: #555555;
+      }
+
+      .movies {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        /* background-color: var(--primary-color); */
+        width: 97%;
+        padding: 20px;
+      }
+
+      .movie-card {
+        background-color: var(--card-bg-color);
+        color: var(--card-text-color);
+        width: 150px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+      }
+
+      .movie-card:hover {
+        transform: scale(1.05);
+      }
+
+      .movie-card img {
+        width: 100%;
+      }
+
+      .movie-card p {
+        margin: 10px;
+        font-size: 14px;
+      }
+
+      .pagination {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .pagination button {
+        padding: 10px 20px;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 0 5px;
+      }
+
+      .pagination button:disabled {
+        background-color: #b0c4de;
+        cursor: not-allowed;
+      }
+
+      .pagination button:hover:not(:disabled) {
+        background-color: #2980b9;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .menu-buttons button {
+          padding: 8px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <div class="search-bar-container">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for movies..."
+            onkeyup="filterPosts()"
+            aria-label="Search movies"
+          />
+          <i class="fas fa-search" onclick="filterPosts()"></i>
+        </div>
+      </div>
+      <div class="menu">
+        <h1 class="title">Manglam Movie</h1>
+        <div class="menu-buttons">
+          <button>Latest Movie</button>
+          <button>Bollywood 720p</button>
+          <button>Kangan</button>
+          <button>Hungama</button>
+          <button>Hollywood 1080p</button>
+          <button>AltT</button>
+          <button>Watcho</button>
+          <button>Atrangii</button>
+          <button>Web Series</button>
+          <button>Kooku</button>
+          <button>Stage</button>
+        </div>
+      </div>
+      <div class="movies" id="movie-card"></div>
+      <div class="pagination">
+        <button id="prevButton" onclick="loadPreviousPage()" disabled>
+          Previous Page
+        </button>
+        <button id="nextButton" onclick="loadNextPage()">Next Page</button>
+      </div>
+    </div>
+    <script>
+      const noResultsMessage = "No movies found.";
+      let currentPage = 1;
+      const postsPerPage = 20;
+
+      const postTitles = [
+        "Love Again Movie Download",
+        "VEDDA FULL MOVIE DOWNLOAD",
+        "POPEYE FULL MOVIE DOWNLOAD",
+        "BLOODY DADDY FULL MOVIE",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+        "Post 10 Title",
+        "Post 10 Title",
+      ];
+
+      function loadPosts(page, filteredTitles = postTitles) {
+        const postContainer = document.querySelector(".movies");
+        postContainer.innerHTML = "";
+
+        if (filteredTitles.length === 0) {
+          postContainer.innerHTML = `<p>${noResultsMessage}</p>`;
+          document.getElementById("prevButton").disabled = true;
+          document.getElementById("nextButton").disabled = true;
+          return;
+        }
+
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToShow = filteredTitles.slice(startIndex, endIndex);
+
+        postsToShow.forEach((title) => {
+          const postElement = document.createElement("div");
+          postElement.classList.add("movie-card");
+
+          const imgElement = document.createElement("img");
+          imgElement.src = "https://via.placeholder.com/150";
+
+          const titleElement = document.createElement("p");
+          titleElement.innerText = title;
+
+          postElement.appendChild(imgElement);
+          postElement.appendChild(titleElement);
+          postContainer.appendChild(postElement);
+        });
+
+        document.getElementById("prevButton").disabled = page === 1;
+        document.getElementById("nextButton").disabled =
+          endIndex >= filteredTitles.length;
+      }
+
+      function loadPreviousPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          filterPosts();
+        }
+      }
+
+      function loadNextPage() {
+        currentPage++;
+        filterPosts();
+      }
+
+      function filterPosts() {
+        const searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase()
+          .trim();
+        const filteredTitles = postTitles.filter((title) =>
+          title.toLowerCase().includes(searchInput)
+        );
+        loadPosts(currentPage, filteredTitles);
+      }
+
+      loadPosts(currentPage);
+      document.addEventListener("DOMContentLoaded", function () {
+        var searchInput = document.getElementById("searchInput");
+        searchInput.focus(); // Automatically focuses the input when the page loads
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        function getQueryVariable(variable) {
+          var query = window.location.search.substring(1);
+          var vars = query.split("&");
+          for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (decodeURIComponent(pair[0]) === variable) {
+              return decodeURIComponent(pair[1]);
+            }
+          }
+          return undefined;
+        }
+        var category = getQueryVariable("category");
+        var searchInput = document.getElementById("searchInput");
+        if (category && searchInput) {
+          searchInput.value = category;
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const adUrls = ["https://example-ad1.com", "https://example-ad2.com"]; // Add your advertisement URLs
+        const maxAdClicks = adUrls.length;
+
+        function loadPosts(page, filteredTitles = postTitles) {
+          const postContainer = document.querySelector(".movies");
+          postContainer.innerHTML = "";
+
+          if (filteredTitles.length === 0) {
+            postContainer.innerHTML = `<p>${noResultsMessage}</p>`;
+            document.getElementById("prevButton").disabled = true;
+            document.getElementById("nextButton").disabled = true;
+            return;
+          }
+
+          const startIndex = (page - 1) * postsPerPage;
+          const endIndex = startIndex + postsPerPage;
+          const postsToShow = filteredTitles.slice(startIndex, endIndex);
+
+          postsToShow.forEach((title) => {
+            const postElement = document.createElement("div");
+            postElement.classList.add("movie-card");
+
+            const imgElement = document.createElement("img");
+            imgElement.src = "https://via.placeholder.com/150";
+
+            const titleElement = document.createElement("p");
+            titleElement.innerText = title;
+
+            postElement.appendChild(imgElement);
+            postElement.appendChild(titleElement);
+            postContainer.appendChild(postElement);
+
+            // Add ad logic to each movie card
+            postElement.addEventListener("click", () => handleAdClick(title));
+          });
+
+          document.getElementById("prevButton").disabled = page === 1;
+          document.getElementById("nextButton").disabled =
+            endIndex >= filteredTitles.length;
+        }
+
+        function handleAdClick(title) {
+          let clickCount = parseInt(localStorage.getItem(title)) || 0;
+          if (clickCount < maxAdClicks) {
+            window.location.href = adUrls[clickCount];
+            localStorage.setItem(title, clickCount + 1);
+          } else {
+            window.location.href = `movie-details.html?movie=${encodeURIComponent(
+              title
+            )}`;
+            localStorage.setItem(title, 0); // Reset click count after redirecting to the movie details
+          }
+        }
+
+        loadPosts(currentPage);
+      });
+    </script>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/7b08f70322.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
