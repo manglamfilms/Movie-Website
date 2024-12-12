@@ -38,7 +38,7 @@
     
       .movie-meta p {
         flex-grow: 1;
-        margin-top: 10px; /* Add space when wrapped */
+        margin-top: 10px;
       }
     
       .download-options h3 {
@@ -46,22 +46,22 @@
       }
     
       .download-options button {
-        background-color: #007bff;
+        background-color: #4CAF50; /* Green background */
+        background-image: linear-gradient(to right, #1dd11d, #10af10, #1cc71c, #4d4ddb, #2323af);
         color: white;
         border: none;
-        padding: 10px 20px;
-        margin-right: 10px;
-        margin-bottom: 10px; /* Add space between buttons */
-        border-radius: 5px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+        transition: background-color 0.3s;
       }
     
       .download-options button:hover {
-        background-color: #0056b3;
+        background-color: #45a049; /* Darker green background on hover */
       }
     
-      /* Responsive Design */
       @media (max-width: 768px) {
         .movie-details-container {
           padding: 10px;
@@ -79,7 +79,7 @@
         }
     
         .menu-buttons button, .download-options button {
-          padding: 8px 10px; /* Smaller padding */
+          padding: 8px 10px;
           font-size: 14px;
         }
       }
@@ -97,10 +97,10 @@
       </div>
       <div class="download-options">
         <h3>Download Options:</h3>
-        <button onclick="handleDownload('360')">360p</button>
-        <button onclick="handleDownload('480')">480p</button>
-        <button onclick="handleDownload('720')">720p</button>
-        <button onclick="handleDownload('1080')">1080p</button>
+        <button onclick="handleDownload('360')">Download [440MB]</button>
+        <button onclick="handleDownload('480')">Download [770MB]</button>
+        <button onclick="handleDownload('720')">Download [1.1GB]</button>
+        <button onclick="handleDownload('1080')">Download [2.1GB]</button>
       </div>
     </div>
     <script>

@@ -156,29 +156,44 @@
       )}`;
     }
     document.addEventListener("DOMContentLoaded", function () {
+      const adUrls = ["https://example-ad1.com", "https://example-ad2.com"]; // Define adUrls correctly in scope
+
+      function handleAdRedirect(imageIndex) {
+        let clickCount =
+          parseInt(localStorage.getItem(`clickCount-${imageIndex}`)) || 0;
+
+        if (clickCount < adUrls.length) {
+          window.location.href = adUrls[clickCount];
+          localStorage.setItem(`clickCount-${imageIndex}`, clickCount + 1);
+        } else {
+          window.location.href = `movie-details.html?movie=${encodeURIComponent(images[imageIndex].title)}`;
+          localStorage.setItem(`clickCount-${imageIndex}`, 0); // Reset after redirection
+        }
+      }
       const images = [
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-        "https://via.placeholder.com/150",
-      ];
+        { src: "https://via.placeholder.com/150", title: "Movie One" },
+        { src: "https://via.placeholder.com/150", title: "Movie Two" },
+        { src: "https://via.placeholder.com/150", title: "Movie Three" },
+        { src: "https://via.placeholder.com/150", title: "Movie Four" },
+        { src: "https://via.placeholder.com/150", title: "Movie Five" },
+        { src: "https://via.placeholder.com/150", title: "Movie Six" },
+        { src: "https://via.placeholder.com/150", title: "Movie Seven" }
+    ];
       const imageSlide = document.getElementById("image-slide");
       function loadImages() {
-        images.forEach((src, index) => {
-          const img = document.createElement("img");
-          img.src = src;
-          img.alt = `Image ${index + 1}`;
-          imageSlide.appendChild(img);
+        const imageSlide = document.getElementById("image-slide");
+        images.forEach((img, index) => {
+            const image = document.createElement("img");
+            image.src = img.src;
+            image.alt = `Image of ${img.title}`;
+            image.title = img.title; // Set the title attribute for accessibility and SEO
+            image.classList.add("slider-image");
+            image.addEventListener("click", () => handleAdRedirect(index));
+            imageSlide.appendChild(image);
         });
-        // Append first image at the end for infinite loop
-        const firstImg = document.createElement("img");
-        firstImg.src = images[0];
-        firstImg.alt = "Image 1";
-        imageSlide.appendChild(firstImg);
-      }
+    }
+      loadImages();
+
       const categories = [
         "Latest Movie",
         "Bollywood 720p",
@@ -206,7 +221,6 @@
           category
         )}`;
       }
-      loadImages();
       loadMenuButtons();
     });
   </script>
