@@ -5,32 +5,38 @@
       {
         "id": "moviebolly1",
         "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Bollywood movie showcasing drama and emotions."
       },
       {
         "id": "moviebolly2",
-        "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150"
+        "title": "A-Film",
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An iconic Bollywood movie that captures the heart of the audience."
       },
       {
         "id": "moviebolly3",
-        "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150"
+        "title": "B-Film",
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A classic Bollywood film with stunning visuals."
       },
-      {    
+      {
         "id": "moviebolly4",
-        "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150"   
+        "title": "C-Film",
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A romantic Bollywood movie loved by fans worldwide."
       },
       {
         "id": "moviebolly5",
-        "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150"
+        "title": "D-Film",
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A thrilling Bollywood film full of twists and turns."
       },
       {
         "id": "moviebolly6",
         "title": "Z-Film",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A groundbreaking Bollywood movie redefining cinema."
       }
     ],
     "moreLink": "bollywood.html"
@@ -41,32 +47,38 @@
       {
         "id": "movieholly1",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Hollywood superhero movie with incredible action scenes."
       },
       {
         "id": "movieholly2",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An epic Hollywood film featuring iconic heroes."
       },
       {
         "id": "movieholly3",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A thrilling Hollywood movie with a strong storyline."
       },
       {
         "id": "movieholly4",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A visually stunning Hollywood superhero film."
       },
       {
         "id": "movieholly5",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An adventurous Hollywood movie with memorable characters."
       },
       {
         "id": "movieholly6",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Hollywood classic loved by audiences worldwide."
       }
     ],
     "moreLink": "hollywood.html"
@@ -77,32 +89,38 @@
       {
         "id": "movieweb1",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A gripping web series with unexpected plot twists."
       },
       {
         "id": "movieweb2",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An intense web series filled with drama and suspense."
       },
       {
         "id": "movieweb3",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A captivating web series that keeps you on the edge of your seat."
       },
       {
         "id": "movieweb4",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A critically acclaimed web series with stellar performances."
       },
       {
         "id": "movieweb5",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A binge-worthy web series with a compelling storyline."
       },
       {
         "id": "movieweb6",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A must-watch web series that redefines storytelling."
       }
     ],
     "moreLink": "webseries.html"
@@ -112,33 +130,39 @@
     "movies": [
       {
         "id": "moviesouth1",
-        "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "title": "A-Man",
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A South Indian action film with breathtaking stunts."
       },
       {
         "id": "moviesouth2",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An emotional South Indian movie with a powerful narrative."
       },
       {
         "id": "moviesouth3",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A visually stunning South Indian blockbuster."
       },
       {
         "id": "moviesouth4",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A thrilling South Indian movie with unexpected twists."
       },
       {
         "id": "moviesouth5",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An entertaining South Indian movie with a strong cast."
       },
       {
         "id": "moviesouth6",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A South Indian film that leaves a lasting impression."
       }
     ],
     "moreLink": "south.html"
@@ -149,32 +173,38 @@
       {
         "id": "movievoovi1",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "An engaging Voovi movie with a unique concept."
       },
       {
         "id": "movievoovi2",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Voovi original that keeps the audience entertained."
       },
       {
         "id": "movievoovi3",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Voovi movie with an unforgettable storyline."
       },
       {
         "id": "movievoovi4",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A thought-provoking Voovi film with stellar visuals."
       },
       {
         "id": "movievoovi5",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A Voovi film that captivates the audience from start to finish."
       },
       {
         "id": "movievoovi6",
         "title": "X-Man",
-        "imageUrl": "https://via.placeholder.com/150"
+        "imageUrl": "https://via.placeholder.com/150",
+        "description": "A highly rated Voovi movie with great performances."
       }
     ],
     "moreLink": "voovi.html"

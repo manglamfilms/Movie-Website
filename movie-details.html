@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Details</title>
@@ -8,46 +8,54 @@
       body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
+        background: url('./css/images/body-bg.gif');
         margin: 0;
         padding: 20px;
-        color: #333;
+        color: white;
       }
-    
+
       .movie-details-container {
-        background: white;
+        background: black;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         max-width: 800px;
         margin: 20px auto;
       }
-    
+
       .movie-meta {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         margin-top: 20px;
       }
-    
+
       .movie-meta img {
         width: 100%;
         max-width: 450px;
         border-radius: 8px;
         margin-right: 20px;
       }
-    
+
       .movie-meta p {
         flex-grow: 1;
         margin-top: 10px;
       }
-    
+
       .download-options h3 {
         margin-top: 20px;
       }
-    
+
       .download-options button {
-        background-color: #4CAF50; /* Green background */
-        background-image: linear-gradient(to right, #1dd11d, #10af10, #1cc71c, #4d4ddb, #2323af);
+        background-color: #4caf50; /* Green background */
+        background-image: linear-gradient(
+          to right,
+          #1dd11d,
+          #10af10,
+          #1cc71c,
+          #4d4ddb,
+          #2323af
+        );
         color: white;
         border: none;
         padding: 12px 20px;
@@ -57,43 +65,46 @@
         font-size: 16px;
         transition: background-color 0.3s;
       }
-    
+
       .download-options button:hover {
         background-color: #45a049; /* Darker green background on hover */
       }
-    
+
       @media (max-width: 768px) {
         .movie-details-container {
           padding: 10px;
           margin: 10px;
         }
-    
+
         .movie-meta {
           flex-direction: column;
           align-items: center;
         }
-    
+
         .movie-meta img {
           margin-right: 0;
           margin-bottom: 10px;
         }
-    
-        .menu-buttons button, .download-options button {
+
+        .menu-buttons button,
+        .download-options button {
           padding: 8px 10px;
           font-size: 14px;
         }
       }
     </style>
-    
-</head>
-<body>
+  </head>
+  <body>
     <div class="movie-details-container">
+      <!-- <i class="fa-regular fa-house"></i> -->
       <h1 id="movie-title">Movie Title</h1>
       <div class="movie-meta">
-        <img id="movie-image" src="https://via.placeholder.com/450x300" alt="Movie Image" />
-        <p id="movie-description">
-          Here is a brief description of the movie. This part can contain plot details, cast information, director, and other interesting facts about the movie.
-        </p>
+        <img
+          id="movie-image"
+          src="https://via.placeholder.com/450x300"
+          alt="Movie Image"
+        />
+        <p id="movie-description">Movie Desc.</p>
       </div>
       <div class="download-options">
         <h3>Download Options:</h3>
@@ -104,31 +115,56 @@
       </div>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        function getQueryVariable(variable) {
-          var query = window.location.search.substring(1);
-          var vars = query.split("&");
-          for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (decodeURIComponent(pair[0]) === variable) {
-              return decodeURIComponent(pair[1].replace(/\+/g, " "));
-            }
-          }
-          return undefined;
-        }
+      function getDesc(jsonData, categoryName, movieTitle) {
+        const category = jsonData.find(
+          (cat) => cat.category.toLowerCase() === categoryName.toLowerCase()
+        );
 
-        const movieName = getQueryVariable("movie");
-        if (movieName) {
-          document.getElementById("movie-title").textContent = movieName;
+        if (!category) {
+          return `Category "${categoryName}" not found.`;
+        }
+        const movie = category.movies.find(
+          (movie) => movie.title.toLowerCase() === movieTitle.toLowerCase()
+        );
+
+        if (!movie) {
+          return `Movie "${movieTitle}" not found in category "${categoryName}".`;
+        }
+        return movie.description;
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const movie = urlParams.get("movie");
+        const category = urlParams.get("category");
+
+        if (movie) {
+          document.getElementById("movie-title").textContent = movie;
+          fetch("movies.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const desc = getDesc(data, category, movie);
+              // console.log(desc);
+              document.getElementById("movie-description").textContent = desc;
+            })
+            .catch((error) => {
+              console.error("Error loading movies:", error);
+              document.getElementById("movie-description").textContent =
+                "Failed to load movie details.";
+            });
         } else {
-          document.getElementById("movie-title").textContent = "No movie specified";
+          document.getElementById("movie-title").textContent =
+            "No movie specified";
+          document.getElementById("movie-description").textContent = "";
         }
       });
 
       function handleDownload(resolution) {
         const movieName = document.getElementById("movie-title").textContent;
-        const key = movieName + '-' + resolution;
-        const redirectUrls = ["https://example-ad1.com", "https://example-ad2.com"];
+        const key = movieName + "-" + resolution;
+        const redirectUrls = [
+          "https://example-ad1.com",
+          "https://example-ad2.com",
+        ];
         let clickCount = parseInt(localStorage.getItem(key)) || 0;
 
         if (clickCount < redirectUrls.length) {
@@ -136,9 +172,13 @@
           localStorage.setItem(key, clickCount + 1);
         } else {
           alert(`Downloading ${movieName} in ${resolution}p`);
-          localStorage.setItem(key, 0);  // Reset click count after download
+          localStorage.setItem(key, 0);
         }
       }
     </script>
-</body>
+    <script
+    src="https://kit.fontawesome.com/7b08f70322.js"
+    crossorigin="anonymous"
+  ></script>
+  </body>
 </html>

@@ -72,7 +72,6 @@
           attachClickListeners();
         })
         .catch((error) => console.error("Error loading movies:", error));
-
       function populateMovies(data) {
         const content = document.getElementById("content");
         data.forEach((category) => {
@@ -84,19 +83,23 @@
           const h2 = document.createElement("h2");
           h2.innerText = category.category;
           const a = document.createElement("a");
-          a.href = `${category.category.toLowerCase()}.html`;
+          a.href = `category.html?category=${encodeURIComponent(
+            category.category.toLowerCase()
+          )}`;
           a.innerText = "See all";
           head.appendChild(h2);
           head.appendChild(a);
 
           const movies = document.createElement("div");
           movies.classList.add("movies");
+          const cat = category.category;
 
           category.movies.forEach((m) => {
             const movieCard = document.createElement("div");
             movieCard.classList.add("movie-card");
             movieCard.setAttribute("data-id", m.id);
             movieCard.setAttribute("data-movie-name", m.title);
+            movieCard.setAttribute("data-movie-cat", cat);
 
             const img = document.createElement("img");
             img.src = m.imageUrl;
@@ -111,7 +114,9 @@
           const movieButton = document.createElement("div");
           movieButton.classList.add("movieButton");
           const a2 = document.createElement("a");
-          a2.href = category.moreLink; // Corrected to use category or other appropriate object
+          a2.href = `category.html?category=${encodeURIComponent(
+            cat.toLowerCase()
+          )}`;
           a2.innerText = "See all";
           movieButton.appendChild(a2);
 
@@ -138,9 +143,11 @@
               localStorage.setItem(`clickCount-${movieId}`, clickCount + 1);
             } else {
               const movieName = movie.getAttribute("data-movie-name");
+              const movieCat = movie.getAttribute("data-movie-cat");
+              // console.log();
               window.location.href = `movie-details.html?movie=${encodeURIComponent(
                 movieName
-              )}`;
+              )}&category=${encodeURIComponent(movieCat)}`;
               localStorage.setItem(`clickCount-${movieId}`, 0);
             }
           });
@@ -148,7 +155,6 @@
       }
     });
   </script>
-
   <script>
     function redirectToSearch(movieCategory) {
       window.location.href = `search.html?category=${encodeURIComponent(
@@ -158,7 +164,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const adUrls = ["https://example-ad1.com", "https://example-ad2.com"]; // Define adUrls correctly in scope
 
-      function handleAdRedirect(imageIndex) {
+      function handleAdRedirect(imageIndex, category) {
         let clickCount =
           parseInt(localStorage.getItem(`clickCount-${imageIndex}`)) || 0;
 
@@ -166,33 +172,38 @@
           window.location.href = adUrls[clickCount];
           localStorage.setItem(`clickCount-${imageIndex}`, clickCount + 1);
         } else {
-          window.location.href = `movie-details.html?movie=${encodeURIComponent(images[imageIndex].title)}`;
-          localStorage.setItem(`clickCount-${imageIndex}`, 0); // Reset after redirection
+          window.location.href = `movie-details.html?movie=${encodeURIComponent(
+            images[imageIndex].title
+          )}&category=${encodeURIComponent(category)}`;
+          localStorage.setItem(`clickCount-${imageIndex}`, 0);
         }
       }
-      const images = [
-        { src: "https://via.placeholder.com/150", title: "Movie One" },
-        { src: "https://via.placeholder.com/150", title: "Movie Two" },
-        { src: "https://via.placeholder.com/150", title: "Movie Three" },
-        { src: "https://via.placeholder.com/150", title: "Movie Four" },
-        { src: "https://via.placeholder.com/150", title: "Movie Five" },
-        { src: "https://via.placeholder.com/150", title: "Movie Six" },
-        { src: "https://via.placeholder.com/150", title: "Movie Seven" }
-    ];    
-      const imageSlide = document.getElementById("image-slide");
+      let images = [];
+      fetch("poster.json")
+        .then((response) => response.json())
+        .then((data) => {
+          images = data;
+          loadImages();
+        })
+        .catch((error) => {
+          console.error("Error fetching JSON:", error);
+        });
       function loadImages() {
         const imageSlide = document.getElementById("image-slide");
+        imageSlide.innerHTML = "";
         images.forEach((img, index) => {
-            const image = document.createElement("img");
-            image.src = img.src;
-            image.alt = `Image of ${img.title}`;
-            image.title = img.title; // Set the title attribute for accessibility and SEO
-            image.classList.add("slider-image");
-            image.addEventListener("click", () => handleAdRedirect(index));
-            imageSlide.appendChild(image);
+          const image = document.createElement("img");
+          image.src = img.src;
+          image.alt = `Image of ${img.title}`;
+          image.title = img.title;
+          image.classList.add("slider-image");
+          image.addEventListener("click", () =>
+            handleAdRedirect(index, img.category)
+          );
+          imageSlide.appendChild(image);
         });
-    }
-      loadImages();
+      }
+      // loadImages();
 
       const categories = [
         "Latest Movie",
