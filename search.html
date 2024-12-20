@@ -42,7 +42,15 @@
         padding: 10px;
         display: flex;
         width: 100%;
-        justify-content: center;
+        justify-content: space-around;
+      }
+
+      .search-bar-container p {
+        margin: 0;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        font-family: monospace;
       }
 
       .search-bar {
@@ -187,6 +195,12 @@
   <body>
     <div id="body">
       <div class="search-bar-container">
+        <div
+          onclick="window.location.href='index.html'"
+          style="display: flex; align-items: center"
+        >
+          <p>Manglam Movies</p>
+        </div>
         <div class="search-bar">
           <input
             type="text"
@@ -198,21 +212,9 @@
           <i class="fas fa-search" onclick="filterPosts()"></i>
         </div>
       </div>
+      <!-- <h1 class="title">Manglam Movie</h1> -->
       <div class="menu">
-        <h1 class="title">Manglam Movie</h1>
-        <div class="menu-buttons">
-          <button>Latest Movie</button>
-          <button>Bollywood 720p</button>
-          <button>Kangan</button>
-          <button>Hungama</button>
-          <button>Hollywood 1080p</button>
-          <button>AltT</button>
-          <button>Watcho</button>
-          <button>Atrangii</button>
-          <button>Web Series</button>
-          <button>Kooku</button>
-          <button>Stage</button>
-        </div>
+        <div class="menu-buttons" id="menu-buttons"></div>
       </div>
       <div class="movies" id="movie-card"></div>
       <div class="pagination">
@@ -278,6 +280,37 @@
           }
         }
 
+        const categories = [
+          "Latest Movie",
+          "Bollywood 720p",
+          "Kangan",
+          "Hungama",
+          "Hollywood 1080p",
+          "AltT",
+          "Watcho",
+          "Atrangii",
+          "Web Series",
+          "Kooku",
+          "Stage",
+        ];
+        function loadMenuButtons() {
+          const container = document.getElementById("menu-buttons");
+          categories.forEach((category) => {
+            const button = document.createElement("button");
+            button.textContent = category;
+            button.onclick = () => redirectToSearch(category);
+            container.appendChild(button);
+          });
+        }
+        function redirectToSearch(category) {
+          const input = document.getElementById("searchInput");
+          input.value = category; // Set the value of the input field
+          input.dispatchEvent(new Event("input")); // Trigger the input event to filter posts
+          // window.location.href = `search.html?search=${encodeURIComponent(
+          //   category
+          // )}`;
+        }
+        loadMenuButtons();
         loadPosts(currentPage);
       });
     </script>
@@ -287,7 +320,7 @@
       const postsPerPage = 20;
       const adUrls = ["https://example-ad1.com", "https://example-ad2.com"];
       const maxAdClicks = adUrls.length;
-    
+
       const postTitles = [
         "Love Again Movie Download",
         "VEDDA FULL MOVIE DOWNLOAD",
@@ -299,40 +332,42 @@
         "GRAND RELEASE TODAY",
         "KALKI MOVIE",
       ];
-    
+
       document.addEventListener("DOMContentLoaded", function () {
         const searchInput = document.getElementById("searchInput");
-    
+
         // Get the search query from the URL and apply it
         const urlParams = new URLSearchParams(window.location.search);
         const searchQuery = urlParams.get("search");
-    
+
         if (searchQuery) {
           searchInput.value = searchQuery;
           applySearch(searchQuery);
         } else {
           loadPosts(currentPage, postTitles); // Load all posts if no search query
         }
-    
+
         // Add event listener for search input
         searchInput.addEventListener("input", function () {
           const query = searchInput.value.trim();
           if (query) {
-            // Update the URL with the search query
-            const newUrl = `${window.location.pathname}?search=${encodeURIComponent(
-              query
-            )}`;
+            const newUrl = `${
+              window.location.pathname
+            }?search=${encodeURIComponent(query)}`;
             window.history.pushState({ path: newUrl }, "", newUrl);
-    
+
             applySearch(query);
           } else {
-            // Reset to default posts if search is cleared
-            window.history.pushState({ path: window.location.pathname }, "", window.location.pathname);
+            window.history.pushState(
+              { path: window.location.pathname },
+              "",
+              window.location.pathname
+            );
             loadPosts(currentPage, postTitles);
           }
         });
       });
-    
+
       // Function to apply search filtering
       function applySearch(query) {
         const filteredTitles = postTitles.filter((title) =>
@@ -341,45 +376,45 @@
         currentPage = 1; // Reset to the first page
         loadPosts(currentPage, filteredTitles);
       }
-    
+
       // Function to load posts for the current page
       function loadPosts(page, filteredTitles) {
         const postContainer = document.querySelector(".movies");
         postContainer.innerHTML = "";
-    
+
         if (filteredTitles.length === 0) {
           postContainer.innerHTML = `<p>${noResultsMessage}</p>`;
           document.getElementById("prevButton").disabled = true;
           document.getElementById("nextButton").disabled = true;
           return;
         }
-    
+
         const startIndex = (page - 1) * postsPerPage;
         const endIndex = startIndex + postsPerPage;
         const postsToShow = filteredTitles.slice(startIndex, endIndex);
-    
+
         postsToShow.forEach((title) => {
           const postElement = document.createElement("div");
           postElement.classList.add("movie-card");
-    
+
           const imgElement = document.createElement("img");
           imgElement.src = "https://via.placeholder.com/150";
-    
+
           const titleElement = document.createElement("p");
           titleElement.innerText = title;
-    
+
           postElement.appendChild(imgElement);
           postElement.appendChild(titleElement);
           postContainer.appendChild(postElement);
-    
+
           postElement.addEventListener("click", () => handleAdClick(title));
         });
-    
+
         document.getElementById("prevButton").disabled = page === 1;
         document.getElementById("nextButton").disabled =
           endIndex >= filteredTitles.length;
       }
-    
+
       function loadPreviousPage() {
         if (currentPage > 1) {
           currentPage--;
@@ -387,16 +422,16 @@
           applySearch(query);
         }
       }
-    
+
       function loadNextPage() {
         currentPage++;
         const query = document.getElementById("searchInput").value.trim();
         applySearch(query);
       }
-    
+
       function handleAdClick(title) {
         let clickCount = parseInt(localStorage.getItem(title)) || 0;
-    
+
         if (clickCount < maxAdClicks) {
           window.location.href = adUrls[clickCount];
           localStorage.setItem(title, clickCount + 1);
@@ -408,7 +443,6 @@
         }
       }
     </script>
-    
   </body>
   <script
     src="https://kit.fontawesome.com/7b08f70322.js"
