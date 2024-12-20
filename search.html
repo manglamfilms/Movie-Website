@@ -223,163 +223,6 @@
       </div>
     </div>
     <script>
-      const noResultsMessage = "No movies found.";
-      let currentPage = 1;
-      const postsPerPage = 20;
-
-      const postTitles = [
-        "Love Again Movie Download",
-        "VEDDA FULL MOVIE DOWNLOAD",
-        "POPEYE FULL MOVIE DOWNLOAD",
-        "BLOODY DADDY FULL MOVIE",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-        "KAJASAAR FULL MOVIE",
-        "VISFOT FULL MOVIE DOWNLOAD",
-        "AVENGERS MOVIE DOWNLOAD",
-        "GRAND RELEASE TODAY",
-        "KALKI MOVIE",
-        "Post 10 Title",
-        "Post 10 Title",
-      ];
-
-      function loadPosts(page, filteredTitles = postTitles) {
-        const postContainer = document.querySelector(".movies");
-        postContainer.innerHTML = "";
-
-        if (filteredTitles.length === 0) {
-          postContainer.innerHTML = `<p>${noResultsMessage}</p>`;
-          document.getElementById("prevButton").disabled = true;
-          document.getElementById("nextButton").disabled = true;
-          return;
-        }
-
-        const startIndex = (page - 1) * postsPerPage;
-        const endIndex = startIndex + postsPerPage;
-        const postsToShow = filteredTitles.slice(startIndex, endIndex);
-
-        postsToShow.forEach((title) => {
-          const postElement = document.createElement("div");
-          postElement.classList.add("movie-card");
-
-          const imgElement = document.createElement("img");
-          imgElement.src = "https://via.placeholder.com/150";
-
-          const titleElement = document.createElement("p");
-          titleElement.innerText = title;
-
-          postElement.appendChild(imgElement);
-          postElement.appendChild(titleElement);
-          postContainer.appendChild(postElement);
-        });
-
-        document.getElementById("prevButton").disabled = page === 1;
-        document.getElementById("nextButton").disabled =
-          endIndex >= filteredTitles.length;
-      }
-
-      function loadPreviousPage() {
-        if (currentPage > 1) {
-          currentPage--;
-          filterPosts();
-        }
-      }
-
-      function loadNextPage() {
-        currentPage++;
-        filterPosts();
-      }
-
-      function filterPosts() {
-        const searchInput = document
-          .getElementById("searchInput")
-          .value.toLowerCase()
-          .trim();
-        const filteredTitles = postTitles.filter((title) =>
-          title.toLowerCase().includes(searchInput)
-        );
-        loadPosts(currentPage, filteredTitles);
-      }
-
-      loadPosts(currentPage);
-      document.addEventListener("DOMContentLoaded", function () {
-        var searchInput = document.getElementById("searchInput");
-        searchInput.focus(); // Automatically focuses the input when the page loads
-      });
-      document.addEventListener("DOMContentLoaded", function () {
-        function getQueryVariable(variable) {
-          var query = window.location.search.substring(1);
-          var vars = query.split("&");
-          for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (decodeURIComponent(pair[0]) === variable) {
-              return decodeURIComponent(pair[1]);
-            }
-          }
-          return undefined;
-        }
-        var category = getQueryVariable("category");
-        var searchInput = document.getElementById("searchInput");
-        if (category && searchInput) {
-          searchInput.value = category;
-        }
-      });
-    </script>
-    <script>
       document.addEventListener("DOMContentLoaded", function () {
         const adUrls = ["https://example-ad1.com", "https://example-ad2.com"]; // Add your advertisement URLs
         const maxAdClicks = adUrls.length;
@@ -438,6 +281,134 @@
         loadPosts(currentPage);
       });
     </script>
+    <script>
+      const noResultsMessage = "No movies found.";
+      let currentPage = 1;
+      const postsPerPage = 20;
+      const adUrls = ["https://example-ad1.com", "https://example-ad2.com"];
+      const maxAdClicks = adUrls.length;
+    
+      const postTitles = [
+        "Love Again Movie Download",
+        "VEDDA FULL MOVIE DOWNLOAD",
+        "POPEYE FULL MOVIE DOWNLOAD",
+        "BLOODY DADDY FULL MOVIE",
+        "KAJASAAR FULL MOVIE",
+        "VISFOT FULL MOVIE DOWNLOAD",
+        "AVENGERS MOVIE DOWNLOAD",
+        "GRAND RELEASE TODAY",
+        "KALKI MOVIE",
+      ];
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+    
+        // Get the search query from the URL and apply it
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get("search");
+    
+        if (searchQuery) {
+          searchInput.value = searchQuery;
+          applySearch(searchQuery);
+        } else {
+          loadPosts(currentPage, postTitles); // Load all posts if no search query
+        }
+    
+        // Add event listener for search input
+        searchInput.addEventListener("input", function () {
+          const query = searchInput.value.trim();
+          if (query) {
+            // Update the URL with the search query
+            const newUrl = `${window.location.pathname}?search=${encodeURIComponent(
+              query
+            )}`;
+            window.history.pushState({ path: newUrl }, "", newUrl);
+    
+            applySearch(query);
+          } else {
+            // Reset to default posts if search is cleared
+            window.history.pushState({ path: window.location.pathname }, "", window.location.pathname);
+            loadPosts(currentPage, postTitles);
+          }
+        });
+      });
+    
+      // Function to apply search filtering
+      function applySearch(query) {
+        const filteredTitles = postTitles.filter((title) =>
+          title.toLowerCase().includes(query.toLowerCase())
+        );
+        currentPage = 1; // Reset to the first page
+        loadPosts(currentPage, filteredTitles);
+      }
+    
+      // Function to load posts for the current page
+      function loadPosts(page, filteredTitles) {
+        const postContainer = document.querySelector(".movies");
+        postContainer.innerHTML = "";
+    
+        if (filteredTitles.length === 0) {
+          postContainer.innerHTML = `<p>${noResultsMessage}</p>`;
+          document.getElementById("prevButton").disabled = true;
+          document.getElementById("nextButton").disabled = true;
+          return;
+        }
+    
+        const startIndex = (page - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        const postsToShow = filteredTitles.slice(startIndex, endIndex);
+    
+        postsToShow.forEach((title) => {
+          const postElement = document.createElement("div");
+          postElement.classList.add("movie-card");
+    
+          const imgElement = document.createElement("img");
+          imgElement.src = "https://via.placeholder.com/150";
+    
+          const titleElement = document.createElement("p");
+          titleElement.innerText = title;
+    
+          postElement.appendChild(imgElement);
+          postElement.appendChild(titleElement);
+          postContainer.appendChild(postElement);
+    
+          postElement.addEventListener("click", () => handleAdClick(title));
+        });
+    
+        document.getElementById("prevButton").disabled = page === 1;
+        document.getElementById("nextButton").disabled =
+          endIndex >= filteredTitles.length;
+      }
+    
+      function loadPreviousPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          const query = document.getElementById("searchInput").value.trim();
+          applySearch(query);
+        }
+      }
+    
+      function loadNextPage() {
+        currentPage++;
+        const query = document.getElementById("searchInput").value.trim();
+        applySearch(query);
+      }
+    
+      function handleAdClick(title) {
+        let clickCount = parseInt(localStorage.getItem(title)) || 0;
+    
+        if (clickCount < maxAdClicks) {
+          window.location.href = adUrls[clickCount];
+          localStorage.setItem(title, clickCount + 1);
+        } else {
+          window.location.href = `movie-details.html?movie=${encodeURIComponent(
+            title
+          )}`;
+          localStorage.setItem(title, 0); // Reset click count after redirecting to the movie details
+        }
+      }
+    </script>
+    
   </body>
   <script
     src="https://kit.fontawesome.com/7b08f70322.js"
