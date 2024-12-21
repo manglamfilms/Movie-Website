@@ -8,7 +8,7 @@
       body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
-        background: url('./css/images/body-bg.gif');
+        background: url("./css/images/body-bg.gif");
         margin: 0;
         padding: 20px;
         color: white;
@@ -130,8 +130,9 @@
         if (!movie) {
           return `Movie "${movieTitle}" not found in category "${categoryName}".`;
         }
-        return movie.description;
+        return movie;
       }
+      let link = {};
       document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
         const movie = urlParams.get("movie");
@@ -142,9 +143,11 @@
           fetch("movies.json")
             .then((response) => response.json())
             .then((data) => {
-              const desc = getDesc(data, category, movie);
-              // console.log(desc);
-              document.getElementById("movie-description").textContent = desc;
+              const movieData = getDesc(data, category, movie);
+              console.log(movieData);
+              document.getElementById("movie-description").textContent = movieData.description;
+              document.getElementById("movie-image").src = movieData.imageUrl;
+              link = movieData.link;
             })
             .catch((error) => {
               console.error("Error loading movies:", error);
@@ -171,7 +174,7 @@
           window.location.href = redirectUrls[clickCount];
           localStorage.setItem(key, clickCount + 1);
         } else {
-          alert(`Downloading ${movieName} in ${resolution}p`);
+          window.location.href = link[resolution];
           localStorage.setItem(key, 0);
         }
       }

@@ -6,37 +6,73 @@
         "id": "moviebolly1",
         "title": "Y-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Bollywood movie showcasing drama and emotions."
+        "description": "A Bollywood movie showcasing drama and emotions.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviebolly2",
         "title": "A-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An iconic Bollywood movie that captures the heart of the audience."
+        "description": "An iconic Bollywood movie that captures the heart of the audience.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviebolly3",
         "title": "B-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A classic Bollywood film with stunning visuals."
+        "description": "A classic Bollywood film with stunning visuals.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviebolly4",
         "title": "C-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A romantic Bollywood movie loved by fans worldwide."
+        "description": "A romantic Bollywood movie loved by fans worldwide.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviebolly5",
         "title": "D-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A thrilling Bollywood film full of twists and turns."
+        "description": "A thrilling Bollywood film full of twists and turns.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviebolly6",
         "title": "Z-Film",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A groundbreaking Bollywood movie redefining cinema."
+        "description": "A groundbreaking Bollywood movie redefining cinema.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       }
     ],
     "moreLink": "bollywood.html"
@@ -48,37 +84,73 @@
         "id": "movieholly1",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Hollywood superhero movie with incredible action scenes."
+        "description": "A Hollywood superhero movie with incredible action scenes.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieholly2",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An epic Hollywood film featuring iconic heroes."
+        "description": "An epic Hollywood film featuring iconic heroes.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieholly3",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A thrilling Hollywood movie with a strong storyline."
+        "description": "A thrilling Hollywood movie with a strong storyline.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieholly4",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A visually stunning Hollywood superhero film."
+        "description": "A visually stunning Hollywood superhero film.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieholly5",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An adventurous Hollywood movie with memorable characters."
+        "description": "An adventurous Hollywood movie with memorable characters.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieholly6",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Hollywood classic loved by audiences worldwide."
+        "description": "A Hollywood classic loved by audiences worldwide.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       }
     ],
     "moreLink": "hollywood.html"
@@ -90,37 +162,73 @@
         "id": "movieweb1",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A gripping web series with unexpected plot twists."
+        "description": "A gripping web series with unexpected plot twists.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieweb2",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An intense web series filled with drama and suspense."
+        "description": "An intense web series filled with drama and suspense.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieweb3",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A captivating web series that keeps you on the edge of your seat."
+        "description": "A captivating web series that keeps you on the edge of your seat.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieweb4",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A critically acclaimed web series with stellar performances."
+        "description": "A critically acclaimed web series with stellar performances.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieweb5",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A binge-worthy web series with a compelling storyline."
+        "description": "A binge-worthy web series with a compelling storyline.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movieweb6",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A must-watch web series that redefines storytelling."
+        "description": "A must-watch web series that redefines storytelling.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       }
     ],
     "moreLink": "webseries.html"
@@ -132,37 +240,73 @@
         "id": "moviesouth1",
         "title": "A-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A South Indian action film with breathtaking stunts."
+        "description": "A South Indian action film with breathtaking stunts.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviesouth2",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An emotional South Indian movie with a powerful narrative."
+        "description": "An emotional South Indian movie with a powerful narrative.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviesouth3",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A visually stunning South Indian blockbuster."
+        "description": "A visually stunning South Indian blockbuster.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviesouth4",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A thrilling South Indian movie with unexpected twists."
+        "description": "A thrilling South Indian movie with unexpected twists.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviesouth5",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An entertaining South Indian movie with a strong cast."
+        "description": "An entertaining South Indian movie with a strong cast.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "moviesouth6",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A South Indian film that leaves a lasting impression."
+        "description": "A South Indian film that leaves a lasting impression.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       }
     ],
     "moreLink": "south.html"
@@ -174,37 +318,73 @@
         "id": "movievoovi1",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "An engaging Voovi movie with a unique concept."
+        "description": "An engaging Voovi movie with a unique concept.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movievoovi2",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Voovi original that keeps the audience entertained."
+        "description": "A Voovi original that keeps the audience entertained.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movievoovi3",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Voovi movie with an unforgettable storyline."
+        "description": "A Voovi movie with an unforgettable storyline.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movievoovi4",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A thought-provoking Voovi film with stellar visuals."
+        "description": "A thought-provoking Voovi film with stellar visuals.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movievoovi5",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A Voovi film that captivates the audience from start to finish."
+        "description": "A Voovi film that captivates the audience from start to finish.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       },
       {
         "id": "movievoovi6",
         "title": "X-Man",
         "imageUrl": "https://via.placeholder.com/150",
-        "description": "A highly rated Voovi movie with great performances."
+        "description": "A highly rated Voovi movie with great performances.",
+        "link": {
+          "360": "https://example.com/movie360.mp4",
+          "480": "https://example.com/movie480.mp4",
+          "720": "https://example.com/movie720.mp4",
+          "1080": "https://example.com/movie1080.mp4"
+        }
       }
     ],
     "moreLink": "voovi.html"
