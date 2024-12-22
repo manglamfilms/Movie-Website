@@ -335,6 +335,7 @@
     const postsPerPage = 100;
     let postTitles = [];
     let postCategory = [];
+    let postImages = [];
 
     document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(window.location.search);
@@ -348,6 +349,7 @@
               cat.movies.forEach((movie) => {
                 postTitles.push(movie.title);
                 postCategory.push(cat.category);
+                postImages.push(movie.imageUrl);
               });
             });
             // console.log(postCategory);
@@ -366,6 +368,7 @@
               return;
             }
             postTitles = categoryData.movies.map((movie) => movie.title);
+            postImages = categoryData.movies.map((movie) => movie.imageUrl);
 
             if (postTitles.length === 0) {
               document.querySelector(
@@ -410,7 +413,7 @@
         }
 
         const imgElement = document.createElement("img");
-        imgElement.src = "https://via.placeholder.com/150";
+        imgElement.src = postImages[index];
 
         const titleElement = document.createElement("p");
         titleElement.innerText = title;
