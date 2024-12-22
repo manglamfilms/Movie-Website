@@ -5,7 +5,7 @@
       {
         "id": "moviebolly1",
         "title": "Y-Film",
-        "imageUrl": "https://via.placeholder.com/150",
+        "imageUrl": "https://via.placeholder.com/153",
         "description": "A Bollywood movie showcasing drama and emotions.",
         "link": {
           "360": "https://example.com/movie360.mp4",
@@ -17,7 +17,7 @@
       {
         "id": "moviebolly2",
         "title": "A-Film",
-        "imageUrl": "https://via.placeholder.com/150",
+        "imageUrl": "https://via.placeholder.com/151",
         "description": "An iconic Bollywood movie that captures the heart of the audience.",
         "link": {
           "360": "https://example.com/movie360.mp4",
