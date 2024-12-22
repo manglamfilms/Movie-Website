@@ -332,43 +332,47 @@
   </body>
   <script>
     let currentPage = 1;
-    const postsPerPage = 3;
+    const postsPerPage = 100;
     let postTitles = [];
+    let postCategory = [];
 
     document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(window.location.search);
       const category = urlParams.get("category");
       const noResultsMessage = "No movies found for the selected category.";
-
-      if (!category) {
-        console.error("Category not specified in the URL.");
-        document.querySelector(
-          ".movies"
-        ).innerHTML = `<p>${noResultsMessage}</p>`;
-        return;
-      }
       fetch("movies.json")
         .then((response) => response.json())
         .then((data) => {
-          const categoryData = data.find(
-            (cat) => cat.category.toLowerCase() === category.toLowerCase()
-          );
-
-          if (!categoryData) {
-            console.error(`Category "${category}" not found.`);
-            document.querySelector(
-              ".movies"
-            ).innerHTML = `<p>${noResultsMessage}</p>`;
-            return;
-          }
-          postTitles = categoryData.movies.map((movie) => movie.title);
-
-          if (postTitles.length === 0) {
-            document.querySelector(
-              ".movies"
-            ).innerHTML = `<p>${noResultsMessage}</p>`;
-          } else {
+          if (!category) {
+            data.forEach((cat) => {
+              cat.movies.forEach((movie) => {
+                postTitles.push(movie.title);
+                postCategory.push(cat.category);
+              });
+            });
+            // console.log(postCategory);
             loadPosts(1);
+          } else {
+            const categoryData = data.find(
+              (cat) => cat.category.toLowerCase() === category.toLowerCase()
+            );
+
+            if (!categoryData) {
+              console.error(`Category "${category}" not found.`);
+              document.querySelector(
+                ".movies"
+              ).innerHTML = `<p>${noResultsMessage}</p>`;
+              return;
+            }
+            postTitles = categoryData.movies.map((movie) => movie.title);
+
+            if (postTitles.length === 0) {
+              document.querySelector(
+                ".movies"
+              ).innerHTML = `<p>${noResultsMessage}</p>`;
+            } else {
+              loadPosts(1);
+            }
           }
         })
         .catch((error) => {
@@ -386,16 +390,18 @@
       const startIndex = (page - 1) * postsPerPage;
       const endIndex = startIndex + postsPerPage;
       const postsToShow = filteredTitles.slice(startIndex, endIndex);
+      // console.log(page);
 
       if (postsToShow.length === 0) {
         postContainer.innerHTML = `<p>No movies found for this page.</p>`;
         return;
       }
 
-      postsToShow.forEach((title) => {
+      postsToShow.forEach((title,index) => {
         const postElement = document.createElement("div");
         postElement.classList.add("movie-card");
         postElement.setAttribute("data-title", title);
+        postElement.setAttribute("category",postCategory[index]);
 
         const imgElement = document.createElement("img");
         imgElement.src = "https://via.placeholder.com/150";
@@ -406,7 +412,7 @@
         postElement.appendChild(imgElement);
         postElement.appendChild(titleElement);
         postContainer.appendChild(postElement);
-        postElement.addEventListener("click", () => handleAdRedirect(title));
+        postElement.addEventListener("click", () => handleAdRedirect(title,postCategory[index]));
       });
 
       document.getElementById("prevButton").disabled = page === 1;
@@ -424,11 +430,9 @@
       loadPosts(currentPage);
     }
 
-    function handleAdRedirect(movieTitle) {
+    function handleAdRedirect(movieTitle,movieCategory) {
       const adUrls = ["https://example-ad1.com", "https://example-ad2.com"];
-      const finalUrl = `movie-details.html?movie=${encodeURIComponent(
-        movieTitle
-      )}`;
+      const finalUrl = `movie-details.html?movie=${encodeURIComponent(movieTitle)}&category=${encodeURIComponent(movieCategory)}`;
       let clicks = parseInt(localStorage.getItem(movieTitle)) || 0;
 
       if (clicks < adUrls.length) {
@@ -439,46 +443,46 @@
         localStorage.setItem(movieTitle, 0);
       }
     }
-    
+
     const categories = [
-        "Latest Movie",
-        "Bollywood 720p",
-        "Kangan",
-        "Hungama",
-        "Hollywood 1080p",
-        "AltT",
-        "Watcho",
-        "Atrangii",
-        "Web Series",
-        "Kooku",
-        "Stage",
-        "Stage",
+      "Latest Movie",
+      "Bollywood 720p",
+      "Kangan",
+      "Hungama",
+      "Hollywood 1080p",
+      "AltT",
+      "Watcho",
+      "Atrangii",
+      "Web Series",
+      "Kooku",
+      "Stage",
+      "Stage",
     ];
-    
+
     function filterPosts() {
-        const searchInput = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const filteredTitles = postTitles.filter((title) =>
-          title.toLowerCase().includes(searchInput)
-        );
-        loadPosts(1, filteredTitles); // Reset to page 1 on search
+      const searchInput = document
+        .getElementById("searchInput")
+        .value.toLowerCase();
+      const filteredTitles = postTitles.filter((title) =>
+        title.toLowerCase().includes(searchInput)
+      );
+      loadPosts(1, filteredTitles); // Reset to page 1 on search
     }
-    
+
     function loadMenuButtons() {
-        const container = document.getElementById("menu-buttons");
-        categories.forEach((category) => {
-          const button = document.createElement("button");
-          button.textContent = category;
-          button.onclick = () => setSearchValue(category);
-          container.appendChild(button);
-        });
+      const container = document.getElementById("menu-buttons");
+      categories.forEach((category) => {
+        const button = document.createElement("button");
+        button.textContent = category;
+        button.onclick = () => setSearchValue(category);
+        container.appendChild(button);
+      });
     }
-    
+
     function setSearchValue(value) {
-        const searchInput = document.getElementById("searchInput");
-        searchInput.value = value;
-        filterPosts();
+      const searchInput = document.getElementById("searchInput");
+      searchInput.value = value;
+      filterPosts();
     }
 
     loadMenuButtons();
