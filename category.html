@@ -353,10 +353,11 @@
             // console.log(postCategory);
             loadPosts(1);
           } else {
+            // console.log("1");
             const categoryData = data.find(
               (cat) => cat.category.toLowerCase() === category.toLowerCase()
             );
-
+            // console.log(categoryData);
             if (!categoryData) {
               console.error(`Category "${category}" not found.`);
               document.querySelector(
@@ -384,6 +385,8 @@
     });
 
     function loadPosts(page, filteredTitles = postTitles) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get("category");
       const postContainer = document.querySelector(".movies");
       postContainer.innerHTML = "";
 
@@ -401,7 +404,10 @@
         const postElement = document.createElement("div");
         postElement.classList.add("movie-card");
         postElement.setAttribute("data-title", title);
-        postElement.setAttribute("category",postCategory[index]);
+        if(!category) postElement.setAttribute("category",postCategory[index]);
+        else{
+          postCategory[index] = category;
+        }
 
         const imgElement = document.createElement("img");
         imgElement.src = "https://via.placeholder.com/150";
@@ -431,6 +437,7 @@
     }
 
     function handleAdRedirect(movieTitle,movieCategory) {
+      console.log(movieCategory);
       const adUrls = ["https://example-ad1.com", "https://example-ad2.com"];
       const finalUrl = `movie-details.html?movie=${encodeURIComponent(movieTitle)}&category=${encodeURIComponent(movieCategory)}`;
       let clicks = parseInt(localStorage.getItem(movieTitle)) || 0;
