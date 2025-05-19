@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mangalam Movie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #222;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #00f0ff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .poster {
+      width: 300px;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00f0ff44;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #00f0ff;
+    }
+
+    .download-buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .download-buttons button {
+      background: linear-gradient(135deg, #00f0ff, #0077ff);
+      color: #fff;
+      padding: 14px 24px;
+      border: none;
+      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 240, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .download-buttons button::before {
+      content: "⬇️ ";
+    }
+
+    .download-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 240, 255, 0.6);
+      background: linear-gradient(135deg, #00c0cc, #0044cc);
+    }
+
+    footer {
+      background-color: #222;
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    🎬 Mangalam Movie
+  </nav>
+
+  <div class="content">
+    <img src="https://www.gadgets360.com/entertainment/new-hindi-movies/300x450?text=Movie+Poster" class="poster" alt="Movie Poster" />
+    <h1>🔥 Pathaan (2023)</h1>
+
+    <div class="download-buttons">
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Click Here To Download 360p</button>
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Click Here To Download 720p</button>
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Click Here To Download 1080p</button>
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Fast Download 720p</button>
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Super Fast Download 1080p</button>
+      <button onclick="handleClick(this, 'https://otieu.com/4/9348850', 'https://otieu.com/4/9348850', 'https://terasharelink.com/s/15f6TzmM69xGCanXxJ6V70Q')">Watch Online </button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 MovieDownloadSite. All Rights Reserved.
+  </footer>
+
+  <script>
+    const clickMap = new Map();
+
+    function handleClick(btn, ad1, ad2, realLink) {
+      if (!clickMap.has(btn)) clickMap.set(btn, 0);
+      let count = clickMap.get(btn);
+
+      if (count % 3 === 0) {
+        window.open(ad1, "_blank");
+      } else if (count % 3 === 1) {
+        window.open(ad2, "_blank");
+      } else {
+        window.open(realLink, "_blank");
+      }
+
+      clickMap.set(btn, count + 1);
+    }
+  </script>
+
+</body>
+</html>
